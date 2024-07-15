@@ -46,18 +46,27 @@ function playMatch(){
         let round = playRound(hChoice,cChoice)
         if (round == 'win'){
             humanscore += 1;
-            console.log("You win this round " + hChoice + "beates " + cChoice + ".");
+            console.log("You win this round " + hChoice + " beats " + cChoice + ".");
         }
         else if (round == 'lose') {
             computerscore += 1;
-            console.log("You lose this round " + cChoice + "beates " + hChoice + ".");
+            console.log("You lose this round " + cChoice + " beats " + hChoice + ".");
         }
         else if (round == 'draw') {
             console.log("This round was a draw!")
         }
     }
-    console.log(humanscore);
-    console.log(computerscore);
+    if (humanscore > computerscore) {
+        console.log("Congrats you won this match! Your score was " + humanscore + " while " +
+            "the computer scored " + computerscore)
+    }
+    else if (computerscore > humanscore) {
+        console.log("You lost this match! Your score was " + humanscore + " while " +
+            "the computer scored " + computerscore)
+    }
+    else if (computerscore == humanscore){
+        console.log("This round was tie! You and the computer both score " + humanscore)
+    }
 }
 
 playMatch()

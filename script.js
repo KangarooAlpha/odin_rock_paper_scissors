@@ -39,11 +39,25 @@ function playRound (humanChoice, computerChoice){
         }
 }
 
-let hChoice = getHumanChoice()
-let cChoice = getComputerChoice()
+function playMatch(){
+    for (let i = 1; i < 6; i++) {
+        let hChoice = getHumanChoice();
+        let cChoice = getComputerChoice();
+        let round = playRound(hChoice,cChoice)
+        if (round == 'win'){
+            humanscore += 1;
+            console.log("You win this round " + hChoice + "beates " + cChoice + ".");
+        }
+        else if (round == 'lose') {
+            computerscore += 1;
+            console.log("You lose this round " + cChoice + "beates " + hChoice + ".");
+        }
+        else if (round == 'draw') {
+            console.log("This round was a draw!")
+        }
+    }
+    console.log(humanscore);
+    console.log(computerscore);
+}
 
-console.log(hChoice)
-console.log(cChoice)
-
-console.log(playRound(hChoice,cChoice))
-
+playMatch()

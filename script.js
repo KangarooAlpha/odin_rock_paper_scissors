@@ -40,7 +40,7 @@ function playRound (humanChoice, computerChoice){
 }
 
 function playMatch(){
-    for (let i = 1; i < 6; i++) {
+    while(humanscore < 5 && computerscore < 5) {
         let hChoice = getHumanChoice();
         let cChoice = getComputerChoice();
         let round = playRound(hChoice,cChoice)

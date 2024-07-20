@@ -69,4 +69,7 @@ function playMatch(){
     }
 }
 
-playMatch()
+const container = document.querySelector(".container");
+const rockBtn = document.querySelector("#rock");
+const paperBtn = document.querySelector("#paper");
+const scissorsBtn = document.querySelector("#scissors");

@@ -46,26 +46,26 @@ function playMatch(){
         let round = playRound(hChoice,cChoice)
         if (round == 'win'){
             humanscore += 1;
-            console.log("You win this round " + hChoice + " beats " + cChoice + ".");
+            addToList("You win this round " + hChoice + " beats " + cChoice + ".");
         }
         else if (round == 'lose') {
             computerscore += 1;
-            console.log("You lose this round " + cChoice + " beats " + hChoice + ".");
+            addToList("You lose this round " + cChoice + " beats " + hChoice + ".");
         }
         else if (round == 'draw') {
-            console.log("This round was a draw!")
+            addToList("This round was a draw!")
         }
     }
     if (humanscore > computerscore) {
-        console.log("Congrats you won this match! Your score was " + humanscore + " while " +
+        addToList("Congrats you won this match! Your score was " + humanscore + " while " +
             "the computer scored " + computerscore)
     }
     else if (computerscore > humanscore) {
-        console.log("You lost this match! Your score was " + humanscore + " while " +
+        addToList("You lost this match! Your score was " + humanscore + " while " +
             "the computer scored " + computerscore)
     }
     else if (computerscore == humanscore){
-        console.log("This round was tie! You and the computer both score " + humanscore)
+        addToList("This round was tie! You and the computer both score " + humanscore)
     }
 }
 
@@ -73,3 +73,16 @@ const container = document.querySelector(".container");
 const rockBtn = document.querySelector("#rock");
 const paperBtn = document.querySelector("#paper");
 const scissorsBtn = document.querySelector("#scissors");
+
+function addToList(string){
+    var ul = document.createAttribute("ul");
+    var span = document.createAttribute("span");
+
+    span.textContent = (string)
+    
+    ul.appendChild(span);
+    container.appendChild(ul);
+}
+
+
+

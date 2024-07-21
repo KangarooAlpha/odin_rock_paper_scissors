@@ -15,21 +15,21 @@ function getComputerChoice(){
 
 const buttons = document.querySelectorAll("button") 
 
+let humanscore = 0;
+let computerscore = 0;
+
 function getHumanChoice(){
     rockBtn.addEventListener("click", ()=> {
         console.log(rockBtn.id)
-        return (rockBtn.id)
+        playMatch("rock",getComputerChoice())
     });
     paperBtn.addEventListener("click" , () => {
-        return (paperBtn.id)
+        playMatch("paper",getComputerChoice())
     });
     scissorsBtn.addEventListener("click" , ()=> {
-        return (scissorsBtn.id)
+        playMatch("scissors",getComputerChoice())
     });
     }; 
-     
-let humanscore = 0;
-let computerscore = 0;
 
 function playRound (humanChoice, computerChoice){
     if (humanChoice == computerChoice) {
@@ -47,12 +47,10 @@ function playRound (humanChoice, computerChoice){
         }
 }
 
-function playMatch(){
-    //while(humanscore < 5 && computerscore < 5) {
-    for (let i = 0; i < 5; i++){
+function playMatch(hChoice,cChoice){
         //let hChoice = getHumanChoice()
         //let cChoice = getComputerChoice()
-        let round = playRound(getHumanChoice(),getComputerChoice())
+        let round = playRound(hChoice,cChoice)
         if (round == 'win'){
             humanscore += 1;
             console.log('rw')
@@ -67,7 +65,7 @@ function playMatch(){
             console.log('da')
             addToList("This round was a draw!")
         }
-    }
+    
     if (humanscore >= 5 || computerscore >= 5){
     if (humanscore > computerscore) {
         addToList("Congrats you won this match! Your score was " + humanscore + " while " +
@@ -80,18 +78,17 @@ function playMatch(){
     else if (computerscore == humanscore){
         addToList("This round was tie! You and the computer both score " + humanscore)
     }
-}
-}
+}}
 
-const container = document.querySelector(".container");
+
 const rockBtn = document.querySelector("#rock");
 const paperBtn = document.querySelector("#paper");
 const scissorsBtn = document.querySelector("#scissors");
-const ul = document.createAttribute("ul");
+const container = document.querySelector(".container");
 
 function addToList(string){
-    var ul = document.createAttribute("ul");
-    var span = document.createAttribute("span");
+    const ul = document.createElement("ul");
+    const span = document.createElement("span");
 
     span.textContent = (string)
     console.log(string)
@@ -99,5 +96,4 @@ function addToList(string){
     ul.appendChild(span)
     container.appendChild(ul)
 }
-
-playMatch()
+getHumanChoice()

@@ -48,8 +48,6 @@ function playRound (humanChoice, computerChoice){
 }
 
 function playMatch(hChoice,cChoice){
-        //let hChoice = getHumanChoice()
-        //let cChoice = getComputerChoice()
         let round = playRound(hChoice,cChoice)
         if (round == 'win'){
             humanscore += 1;
